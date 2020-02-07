@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="248px" height="201px" viewBox="0 0 248 201" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Hero" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-576.000000, -521.000000)">
+            <g id="Group" transform="translate(576.000000, 521.000000)">
+                <path d="M124,201 C198.678962,201 253.964505,156.004617 247.483716,100.5 C241.002928,44.9953826 185.717385,0 124,0 C62.2826148,0 6.99707186,44.9953826 0.516283648,100.5 C-5.96450456,156.004617 49.3210384,201 124,201 Z" id="Oval" fill="#AAA2DB"></path>
+                <path d="M123.237237,0 C61.8994947,0 6.95403064,44.9953826 0.513107823,100.5 C-5.927815,156.004617 49.017649,201 123.237237,201 C97.89663,196.134042 77.4842178,190.134042 62,183 C38.7736733,172.298937 26.4613791,157.674925 20,144 C3.46736394,109.010168 18,77 29,57 C33.6753776,48.4993135 39.5851273,38.5952628 62,23 C76.9432485,12.6031582 97.3556607,4.9364915 123.237237,0 Z" id="Path" fill="#887FBF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
