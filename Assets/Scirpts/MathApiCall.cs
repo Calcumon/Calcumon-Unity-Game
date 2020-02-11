@@ -41,7 +41,7 @@ public class MathApiCall : MonoBehaviour
     public void Awake()
     {
         Problem = gameObject.GetComponent<Text>();
-        Problem.text = "Hello";
+        Problem.text = "sam";
     }
 
     //  IEnumerator UWR()
