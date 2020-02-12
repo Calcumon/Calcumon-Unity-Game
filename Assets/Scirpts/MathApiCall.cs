@@ -3,59 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using System.Collections;
 
 using System;
 
-[Serializable] 
-public class jsonDataClass
-{
-
-}
-
-[Serializable]
-public class eqn_ans
-{
-    
-}
-
 public class MathApiCall : MonoBehaviour
 {
-    // // Start is called before the first frame update
-    // private const string URL = '"https://calcumon-math-api.herokuapp.com"';
-
-    // public void Request()
-    // {
-    //     WWW request = new WWW(URL);
-    //     StartCoroutine(OnResponse(request))
-    // }
-
-    // private IEnumerator OnResponse(WWW req)
-    // {
-    //     yield return req;
-    // }
-
     public Text Problem;
 
-    private string url = "https://calcumon-math-api.herokuapp.com";
+    public string url = "https://calcumon-math-api.herokuapp.com";
 
     public void Awake()
     {
+        object ApiRequest = StartCoroutine(GetRequest(url));
+        Debug.log(ApiRequest)
         Problem = gameObject.GetComponent<Text>();
         Problem.text = "sam";
     }
 
-    //  IEnumerator UWR()
-    // {
+       IEnumerator GetRequest(string uri)
+    {
+        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        {
+            // Request and wait for the desired page.
+            yield return webRequest.SendWebRequest();
 
-    //     UnityWebRequest www = UnityWebRequest.Get(url);
+            string[] pages = uri.Split('/');
+            int page = pages.Length - 1;
 
-    //     yield return www.sendWebRequest();
-        
-    //     www.downloadHandler.text
-    // }
-
-    // private void ProcessJsonData(url)
-    // {
-    //     jsonDataClass jsnData = JsonUtility
-    // }
+            if (webRequest.isNetworkError)
+            {
+                Debug.Log(pages[page] + ": Error: " + webRequest.error);
+            }
+            else
+            {
+                Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+            }
+        }
+    }
 }
