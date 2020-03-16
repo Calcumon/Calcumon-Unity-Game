@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections;
+using System.Text;
+
+using UnityEngine.JSONSerializeModule;
 
 using System;
 
@@ -13,10 +16,14 @@ public class MathApiCall : MonoBehaviour
 
     public string url = "https://calcumon-math-api.herokuapp.com";
 
+    public Text result;
+
+    
+
     public void Awake()
     {
-        object ApiRequest = StartCoroutine(GetRequest(url));
-        Debug.log(ApiRequest)
+        object ApiCall = StartCoroutine(GetRequest(url));
+        // Debug.Log(ApiCall[0]); 
         Problem = gameObject.GetComponent<Text>();
         Problem.text = "sam";
     }
@@ -37,7 +44,18 @@ public class MathApiCall : MonoBehaviour
             }
             else
             {
-                Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+            StringBuilder sb = new StringBuilder();
+            foreach (System.Collections.Generic.KeyValuePair<string, string> dict in webRequest.GetResponseHeaders())
+            {
+                sb.Append(dict.Key).Append(": \t[").Append(dict.Value).Append("]\n");
+            }
+            sb.ToString();
+            // Print Headers
+                Debug.Log("hello I am here bro");
+                // https://docs.unity3d.com/ScriptReference/JsonUtility.FromJson.html
+                Debug.Log(sb.ToString());
+                // [System.Serializable]
+                Debug.Log(webRequest.downloadHandler.text);
             }
         }
     }
